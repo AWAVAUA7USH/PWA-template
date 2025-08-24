@@ -11,7 +11,7 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/PWA-template/service-worker.js')
+      navigator.serviceWorker.register('./service-worker.js')
         .then(() => console.log("Service Worker registered"))
         .catch(err => console.error("Service Worker failed:", err));
     }
