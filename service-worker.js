@@ -1,9 +1,9 @@
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('hello-cache').then(cache => cache.addAll([
-      '/index.html',
-      '/manifest.json',
-      '/service-worker.js'
+      '/PWA-template/index.html',
+      '/PWA-template/manifest.json',
+      '/PWA-template/service-worker.js'
     ]))
   );
 });
