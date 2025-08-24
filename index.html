@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="/manifest.json">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Test Index · Starter Page</title>
@@ -71,6 +72,15 @@
     a { color: var(--brand-2); text-underline-offset: 3px; }
   </style>
 </head>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker registered:', reg.scope))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    });
+  }
+</script>
 <body>
   <header>
     <nav class="nav container" aria-label="Primary">
@@ -241,14 +251,6 @@ npm run dev</code></pre>
     if (env) document.getElementById('env-pill').innerHTML = `env: <strong>${env}</strong>`;
   </script>
 </body>
-<link rel="manifest" href="/manifest.json">
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(reg => console.log('Service Worker registered:', reg.scope))
-        .catch(err => console.error('Service Worker registration failed:', err));
-    });
-  }
-</script>
+
+
 </html>
